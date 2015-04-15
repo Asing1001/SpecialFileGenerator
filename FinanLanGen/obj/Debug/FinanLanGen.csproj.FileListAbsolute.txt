@@ -1,0 +1,15 @@
+D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\FinanLanGen.exe.config
+D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.csprojResolveAssemblyReference.cache
+D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.Form1.resources
+D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.Properties.Resources.resources
+D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.csproj.GenerateResource.Cache
+D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\FinanLanGen.exe
+D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\FinanLanGen.pdb
+D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\Newtonsoft.Json.dll
+D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\Newtonsoft.Json.xml
+D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.exe
+D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.pdb
+D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\FinanLanGen.exe.manifest
+D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\FinanLanGen.application
+D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.exe.manifest
+D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.application
