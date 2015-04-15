@@ -11,8 +11,8 @@ namespace FinanLanGen
         public static string ToXml(string key,string value,string comment)
         {
             var result = string.Format(
-                "<data name=\"{0}\" xml:space=\"preserve\"><value>{1}</value><comment>{2}</comment></data>"
-                ,key,value,comment);
+                "<data name=\"{0}\" xml:space=\"preserve\">{3}<value>{1}</value>{3}<comment>{2}</comment>{3}</data>{3}"
+                ,key,value,comment,Environment.NewLine);
             return result;
         }
     }

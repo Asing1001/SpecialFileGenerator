@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FinanLanGen.exe" size="13824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FinanLanGen.exe" size="17408">
       <assemblyIdentity name="FinanLanGen" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8srAmqGvuqgg8quNuhnQuXYMY+WCBc5otjQ/G+uvzXs=</dsig:DigestValue>
+        <dsig:DigestValue>hAo6B4j9eM4goYUGe2bstYJUt9THv/cZ6nUkC6Zj3dA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

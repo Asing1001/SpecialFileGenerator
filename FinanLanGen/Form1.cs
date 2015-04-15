@@ -25,44 +25,83 @@ namespace FinanLanGen
 
         }
 
+        private void consoleLog(string log)
+        {
+            richTextBox2.Text += log;
+            richTextBox2.Text += Environment.NewLine;
+        }
+
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
              WriteResx("Text");
         }
 
-        private void WriteResx(string destination)
+        private void preiviewText()
         {
-           string sourceDir = "D:\\Project\\DEV\\star2\\src\\AgileBet.Cash.Portal.WebSite\\App_GlobalResources\\";
-            var fileEntries =  Directory.GetFiles(sourceDir).Where(s=>s.StartsWith(destination)).ToList();
-            bool firstTime = true; 
+            string sourceDir = "D:\\Project\\DEV\\star2\\src\\AgileBet.Cash.Portal.WebSite\\App_GlobalResources\\";
+            if (!Directory.Exists(sourceDir))
+            {
+                sourceDir = folderBrowserDialog1.SelectedPath;  
+            }
 
+            var directory = new DirectoryInfo(sourceDir);
+            var fileEntries = directory.GetFiles().Where(f=>f.Name.Contains("Text") && f.Name.EndsWith("resx")).OrderBy(f=>f.Name).ToList();
+            richTextBox1.Text+="This take first two for example, call \"write to message\" will write these to Message.xxxx"+Environment.NewLine;
             for (int i = 0; i < fileEntries.Count; i++)
             {
-                var path = fileEntries[i];
+                var path = fileEntries[i].FullName;
+                string appendData = "============= " + fileEntries[i].Name + " ============="+Environment.NewLine;
+                for (int j = 0; j < 2; j++)
+                {
+                    var row = dtMine.Rows[j];
+                    if (row["Key"].ToString() != string.Empty)
+                    {
+                        appendData += ResxHelper.ToXml(row["Key"].ToString(), row[i + 2].ToString(),
+                            row["Comment"].ToString());
+                    }
+                }
+                
+                richTextBox1.Text += appendData;
+            }
+            
+        }
+
+        private void WriteResx(string destination)
+        {
+            string sourceDir = "D:\\Project\\DEV\\star2\\src\\AgileBet.Cash.Portal.WebSite\\App_GlobalResources\\";
+            if (!Directory.Exists(sourceDir))
+            {
+                sourceDir = folderBrowserDialog1.SelectedPath;  
+            }
+
+            var directory = new DirectoryInfo(sourceDir);
+            var fileEntries = directory.GetFiles().Where(f=>f.Name.Contains(destination) && f.Name.EndsWith("resx")).OrderBy(f=>f.Name).ToList();
+            
+            for (int i = 0; i < fileEntries.Count; i++)
+            {
+                var path = fileEntries[i].FullName;
                 string content = File.ReadAllText(path);
                 int start = content.IndexOf("</root>");
                 string appendData = "";
                 foreach (DataRow row in dtMine.Rows)
                 {
-                    appendData += ResxHelper.ToXml(row["key"].ToString(),row[i+2].ToString() , row["comment"].ToString());
+                    if (row["Key"].ToString()!=string.Empty)
+                    {
+                        appendData += ResxHelper.ToXml(row["Key"].ToString(), row[i + 2].ToString(), row["Comment"].ToString());
+                    }
                 }
                 content = content.Insert(start, appendData);
-                richTextBox1.Text = content;
-                if (i==0)
+                richTextBox1.Text = appendData;
+                try
                 {
-                    if (MessageBox.Show("Is it alright?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                    {
-                         File.WriteAllText(path, content);    
-                    }
-                    else
-                    {
-                        return;
-                    }
+                    File.WriteAllText(path, content);
+                  
+                    consoleLog("Success write " + fileEntries[i].Name);
                 }
-                else
+                catch (Exception)
                 {
-                     File.WriteAllText(path, content);    
+                    consoleLog("Fail in" + fileEntries[i].Name);
                 }
             }
             System.Diagnostics.Process.Start(sourceDir);
@@ -77,38 +116,20 @@ namespace FinanLanGen
                 string tableName = "[Sheet1$]"; //在頁簽名稱後加$，再用中括號[]包起來
                 string sql = textBox1.Text + " " + tableName; //SQL查詢
                 dtMine = ExcelHelper.GetExcelDataTable(fileName, sql);
-                //dtMine.Columns.Add("Comment");
                 dataGridView1.DataSource = dtMine;
-                //DataCount_BeChanged.Text = "DataCount : " + DataCount(dataGridView1);
+                
             }
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string sourceDir = "D:\\Project\\DEV\\star2\\src\\AgileBet.Cash.Portal.WebSite\\Public\\JS\\Language\\Financials\\";
-            string[] fileEntries = Directory.GetFiles(sourceDir);
-            for (int i = 0; i < fileEntries.Length; i++)
-            {
-                string fullPath = fileEntries[i];
-                string content = File.ReadAllText(fullPath);
-                int start = content.IndexOf('{') + 1;
-                content = content.Insert(start, jsonHelper.ToLanJSON(dtMine, i + 1));
-                //fullPath= fullPath.Replace(sourceDir, "D:\\test\\");
-                File.WriteAllText(fullPath, content);
-
-            }
-            System.Diagnostics.Process.Start(sourceDir);
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //string sourceDir = "D:\\Project\\DEV\\star2\\src\\AgileBet.Cash.Portal.WebSite\\Public\\JS\\Language\\Financials\\";
-            //System.Diagnostics.Process.Start(sourceDir);
         }
 
         private void BtnWrite2Message_Click(object sender, EventArgs e)
         {
             WriteResx("Message");
+        }
+
+        private void PreviewText_Click(object sender, EventArgs e)
+        {
+            preiviewText();
         }
     }
 }
