@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication1;
 
@@ -22,7 +16,7 @@ namespace FinanLanGen
         public Form1()
         {
             InitializeComponent();
-
+            txtSelectFolder.Text = "D:\\Project\\DEV\\star2\\src\\AgileBet.Cash.Portal.WebSite\\App_GlobalResources\\";
         }
 
         private void consoleLog(string log)
@@ -34,24 +28,23 @@ namespace FinanLanGen
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-             WriteResx("Text");
+            WriteResx("Text");
         }
 
         private void preiviewText()
         {
-            string sourceDir = "D:\\Project\\DEV\\star2\\src\\AgileBet.Cash.Portal.WebSite\\App_GlobalResources\\";
-            if (!Directory.Exists(sourceDir))
+            if (!Directory.Exists(txtSelectFolder.Text))
             {
-                sourceDir = folderBrowserDialog1.SelectedPath;  
+                txtSelectFolder.Text = folderBrowserDialog1.SelectedPath;
             }
 
-            var directory = new DirectoryInfo(sourceDir);
-            var fileEntries = directory.GetFiles().Where(f=>f.Name.Contains("Text") && f.Name.EndsWith("resx")).OrderBy(f=>f.Name).ToList();
-            richTextBox1.Text+="This take first two for example, call \"write to message\" will write these to Message.xxxx"+Environment.NewLine;
+            var directory = new DirectoryInfo(txtSelectFolder.Text);
+            var fileEntries = directory.GetFiles().Where(f => f.Name.Contains("Text") && f.Name.EndsWith("resx")).OrderBy(f => f.Name).ToList();
+            richTextBox1.Text += "This take first two for example, call \"write to message\" will write these to Message.xxxx" + Environment.NewLine;
             for (int i = 0; i < fileEntries.Count; i++)
             {
                 var path = fileEntries[i].FullName;
-                string appendData = "============= " + fileEntries[i].Name + " ============="+Environment.NewLine;
+                string appendData = "============= " + fileEntries[i].Name + " =============" + Environment.NewLine;
                 for (int j = 0; j < 2; j++)
                 {
                     var row = dtMine.Rows[j];
@@ -61,23 +54,22 @@ namespace FinanLanGen
                             row["Comment"].ToString());
                     }
                 }
-                
+
                 richTextBox1.Text += appendData;
             }
-            
+
         }
 
         private void WriteResx(string destination)
         {
-            string sourceDir = "D:\\Project\\DEV\\star2\\src\\AgileBet.Cash.Portal.WebSite\\App_GlobalResources\\";
-            if (!Directory.Exists(sourceDir))
+            if (!Directory.Exists(txtSelectFolder.Text))
             {
-                sourceDir = folderBrowserDialog1.SelectedPath;  
+                txtSelectFolder.Text = folderBrowserDialog1.SelectedPath;
             }
 
-            var directory = new DirectoryInfo(sourceDir);
-            var fileEntries = directory.GetFiles().Where(f=>f.Name.Contains(destination) && f.Name.EndsWith("resx")).OrderBy(f=>f.Name).ToList();
-            
+            var directory = new DirectoryInfo(txtSelectFolder.Text);
+            var fileEntries = directory.GetFiles().Where(f => f.Name.Contains(destination) && f.Name.EndsWith("resx")).OrderBy(f => f.Name).ToList();
+
             for (int i = 0; i < fileEntries.Count; i++)
             {
                 var path = fileEntries[i].FullName;
@@ -86,7 +78,7 @@ namespace FinanLanGen
                 string appendData = "";
                 foreach (DataRow row in dtMine.Rows)
                 {
-                    if (row["Key"].ToString()!=string.Empty)
+                    if (row["Key"].ToString() != string.Empty)
                     {
                         appendData += ResxHelper.ToXml(row["Key"].ToString(), row[i + 2].ToString(), row["Comment"].ToString());
                     }
@@ -96,7 +88,7 @@ namespace FinanLanGen
                 try
                 {
                     File.WriteAllText(path, content);
-                  
+
                     consoleLog("Success write " + fileEntries[i].Name);
                 }
                 catch (Exception)
@@ -104,7 +96,7 @@ namespace FinanLanGen
                     consoleLog("Fail in" + fileEntries[i].Name);
                 }
             }
-            System.Diagnostics.Process.Start(sourceDir);
+            System.Diagnostics.Process.Start(txtSelectFolder.Text);
         }
 
         private void btnSelectExcel_Click(object sender, EventArgs e)
@@ -117,7 +109,7 @@ namespace FinanLanGen
                 string sql = textBox1.Text + " " + tableName; //SQL查詢
                 dtMine = ExcelHelper.GetExcelDataTable(fileName, sql);
                 dataGridView1.DataSource = dtMine;
-                
+
             }
 
         }
@@ -130,6 +122,15 @@ namespace FinanLanGen
         private void PreviewText_Click(object sender, EventArgs e)
         {
             preiviewText();
+        }
+
+        private void btnSelectFolder_Click(object sender, EventArgs e)
+        {
+            string dir = FileHelper.OpenFolder();
+            if (dir != string.Empty)
+            {
+                txtSelectFolder.Text = dir;
+            }
         }
     }
 }

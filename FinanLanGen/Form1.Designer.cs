@@ -38,12 +38,14 @@
             this.PreviewText = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox1 = new System.Windows.Forms.TextBox();
+            this.btnSelectFolder = new System.Windows.Forms.Button();
+            this.txtSelectFolder = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(117, 51);
+            this.btnGenerate.Location = new System.Drawing.Point(117, 60);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(100, 23);
             this.btnGenerate.TabIndex = 0;
@@ -53,7 +55,7 @@
             // 
             // btnSelectExcel
             // 
-            this.btnSelectExcel.Location = new System.Drawing.Point(12, 25);
+            this.btnSelectExcel.Location = new System.Drawing.Point(12, 34);
             this.btnSelectExcel.Name = "btnSelectExcel";
             this.btnSelectExcel.Size = new System.Drawing.Size(100, 23);
             this.btnSelectExcel.TabIndex = 1;
@@ -75,7 +77,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 25);
+            this.textBox1.Location = new System.Drawing.Point(118, 34);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(501, 20);
             this.textBox1.TabIndex = 3;
@@ -84,7 +86,7 @@
             // 
             // BtnWrite2Message
             // 
-            this.BtnWrite2Message.Location = new System.Drawing.Point(223, 51);
+            this.BtnWrite2Message.Location = new System.Drawing.Point(223, 60);
             this.BtnWrite2Message.Name = "BtnWrite2Message";
             this.BtnWrite2Message.Size = new System.Drawing.Size(100, 23);
             this.BtnWrite2Message.TabIndex = 5;
@@ -95,7 +97,7 @@
             // PreviewText
             // 
             this.PreviewText.AllowDrop = true;
-            this.PreviewText.Location = new System.Drawing.Point(11, 51);
+            this.PreviewText.Location = new System.Drawing.Point(11, 60);
             this.PreviewText.Name = "PreviewText";
             this.PreviewText.Size = new System.Drawing.Size(100, 23);
             this.PreviewText.TabIndex = 7;
@@ -121,11 +123,30 @@
             this.richTextBox1.Size = new System.Drawing.Size(843, 233);
             this.richTextBox1.TabIndex = 9;
             // 
+            // btnSelectFolder
+            // 
+            this.btnSelectFolder.Location = new System.Drawing.Point(12, 5);
+            this.btnSelectFolder.Name = "btnSelectFolder";
+            this.btnSelectFolder.Size = new System.Drawing.Size(99, 23);
+            this.btnSelectFolder.TabIndex = 10;
+            this.btnSelectFolder.Text = "SelectFolder";
+            this.btnSelectFolder.UseVisualStyleBackColor = true;
+            this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
+            // 
+            // txtSelectFolder
+            // 
+            this.txtSelectFolder.Location = new System.Drawing.Point(118, 5);
+            this.txtSelectFolder.Name = "txtSelectFolder";
+            this.txtSelectFolder.Size = new System.Drawing.Size(501, 20);
+            this.txtSelectFolder.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 581);
+            this.Controls.Add(this.txtSelectFolder);
+            this.Controls.Add(this.btnSelectFolder);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.PreviewText);
@@ -154,6 +175,8 @@
         private System.Windows.Forms.Button PreviewText;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.TextBox richTextBox1;
+        private System.Windows.Forms.Button btnSelectFolder;
+        private System.Windows.Forms.TextBox txtSelectFolder;
     }
 }
 
