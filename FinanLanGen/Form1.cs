@@ -10,8 +10,10 @@ namespace FinanLanGen
     public partial class Form1 : Form
     {
 
+
         DataTable dtMine = new DataTable();
         JsonHelper jsonHelper = new JsonHelper();
+        DataTable _dtJsDataTable = new DataTable();
 
         public Form1()
         {
@@ -26,6 +28,10 @@ namespace FinanLanGen
         }
 
 
+
+
+
+        #region resxGen
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             WriteResx("Text");
@@ -41,11 +47,12 @@ namespace FinanLanGen
             var directory = new DirectoryInfo(txtSelectFolder.Text);
             var fileEntries = directory.GetFiles().Where(f => f.Name.Contains("Text") && f.Name.EndsWith("resx")).OrderBy(f => f.Name).ToList();
             richTextBox1.Text += "This take first two for example, call \"write to message\" will write these to Message.xxxx" + Environment.NewLine;
+            var previewLine = dtMine.Rows.Count >= 2 ? 2 : 1;
             for (int i = 0; i < fileEntries.Count; i++)
             {
                 var path = fileEntries[i].FullName;
                 string appendData = "============= " + fileEntries[i].Name + " =============" + Environment.NewLine;
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < previewLine; j++)
                 {
                     var row = dtMine.Rows[j];
                     if (row["Key"].ToString() != string.Empty)
@@ -132,5 +139,73 @@ namespace FinanLanGen
                 txtSelectFolder.Text = dir;
             }
         }
+        #endregion
+
+        private void btn_JSImportExcel_Click(object sender, EventArgs e)
+        {
+            var fileName = FileHelper.OpenFile();
+            if (fileName != string.Empty)
+            {
+                string tableName = "[Sheet1$]"; //在頁簽名稱後加$，再用中括號[]包起來
+                string sql = txt_JSSQL.Text + " " + tableName; //SQL查詢
+                _dtJsDataTable = ExcelHelper.GetExcelDataTable(fileName, sql);
+                //dtMine.Columns.Add("Comment");
+                JSdataGridView.DataSource = _dtJsDataTable;
+                //DataCount_BeChanged.Text = "DataCount : " + DataCount(dataGridView1);
+            }
+        }
+
+        private void btn_JSReadWrite_Click(object sender, EventArgs e)
+        {
+            var directory = new DirectoryInfo(txt_selectJsFolder.Text);
+            var fileEntries = directory.GetFiles().Where(f => f.Extension == ".js").ToList();
+            //            string[] fileEntries = Directory.GetFiles(txt_selectJsFolder.Text);
+
+            foreach (FileInfo fileinfo in fileEntries)
+            {
+                string fullPath = fileinfo.FullName;// fileEntries[i];
+                string content = "";//File.ReadAllText(fullPath);
+                int start = content.IndexOf('{') + 1;
+                //int columnNum = 0;
+                foreach (DataColumn column in _dtJsDataTable.Columns)
+                {
+                    //得到Excel column對應的檔案名(e.g. en-gb), 如果此檔名和現在的fileInfo檔名相同，就使用該column當Value
+                    if (fileinfo.Name.Contains(LanguageMappingHelper.GetMappingFilename(column.ColumnName)))
+                    {
+                        if (start == 0)//代表檔案是空的
+                        {
+                            var variableName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type a variable you want to use in js file", "languageJS");
+                            content = string.Format("var {0} = { {1} }", variableName, content.Insert(0, jsonHelper.ToJsonByColumnName(_dtJsDataTable, column.ColumnName)).TrimEnd(','));
+
+                        }
+                        else
+                        {
+                            content = content.Insert(start,
+                                jsonHelper.ToJsonByColumnName(_dtJsDataTable, column.ColumnName));
+                        }
+                        break;
+                    }
+                }
+
+                //fullPath= fullPath.Replace(sourceDir, "D:\\test\\");
+                File.WriteAllText(fullPath, content);
+
+            }
+            System.Diagnostics.Process.Start(txt_selectJsFolder.Text);
+        }
+
+        private void TargetJSFolder_Click(object sender, EventArgs e)
+        {
+            var temp = FileHelper.OpenFolder();
+            if (temp != string.Empty)
+            {
+                txt_selectJsFolder.Text = temp;
+            }
+
+        }
+
+
+
+
     }
 }

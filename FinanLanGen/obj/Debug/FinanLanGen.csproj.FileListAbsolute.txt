@@ -13,3 +13,18 @@ D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\FinanLanGen.exe.manifest
 D:\Code Practice\FinanLanGen\FinanLanGen\bin\Debug\FinanLanGen.application
 D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.exe.manifest
 D:\Code Practice\FinanLanGen\FinanLanGen\obj\Debug\FinanLanGen.application
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\bin\Debug\FinanLanGen.exe.config
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.exe
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.pdb
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\bin\Debug\FinanLanGen.exe.manifest
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\bin\Debug\FinanLanGen.application
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\bin\Debug\FinanLanGen.exe
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\bin\Debug\FinanLanGen.pdb
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\bin\Debug\Newtonsoft.Json.dll
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\bin\Debug\Newtonsoft.Json.xml
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.csprojResolveAssemblyReference.cache
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.Form1.resources
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.Properties.Resources.resources
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.csproj.GenerateResource.Cache
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.exe.manifest
+C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.application
