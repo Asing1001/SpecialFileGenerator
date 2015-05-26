@@ -28,3 +28,18 @@ C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-R
 C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.csproj.GenerateResource.Cache
 C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.exe.manifest
 C:\Users\andy.chen\Downloads\SpecialFileGenerator-ResxGen\SpecialFileGenerator-ResxGen\FinanLanGen\obj\Debug\FinanLanGen.application
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\FinanLanGen.exe.config
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\FinanLanGen.exe.manifest
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\FinanLanGen.application
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\FinanLanGen.exe
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\FinanLanGen.pdb
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\Newtonsoft.Json.dll
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\Newtonsoft.Json.xml
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.csprojResolveAssemblyReference.cache
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.Form1.resources
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.Properties.Resources.resources
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.csproj.GenerateResource.Cache
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.exe.manifest
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.application
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.exe
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.pdb

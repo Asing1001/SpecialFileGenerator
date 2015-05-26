@@ -43,12 +43,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txt_selectJsFolder = new System.Windows.Forms.TextBox();
+            this.TargetJSFolder = new System.Windows.Forms.Button();
             this.btn_JSReadWrite = new System.Windows.Forms.Button();
             this.txt_JSSQL = new System.Windows.Forms.TextBox();
             this.JSdataGridView = new System.Windows.Forms.DataGridView();
             this.btn_JSImportExcel = new System.Windows.Forms.Button();
-            this.TargetJSFolder = new System.Windows.Forms.Button();
-            this.txt_selectJsFolder = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -200,6 +200,25 @@
             this.tabPage2.Text = "LocalizeJSGenerator";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // txt_selectJsFolder
+            // 
+            this.txt_selectJsFolder.Location = new System.Drawing.Point(142, 55);
+            this.txt_selectJsFolder.Name = "txt_selectJsFolder";
+            this.txt_selectJsFolder.Size = new System.Drawing.Size(501, 20);
+            this.txt_selectJsFolder.TabIndex = 10;
+            this.txt_selectJsFolder.Text = "D:\\\\Project\\\\DEV\\\\star2\\\\src\\\\AgileBet.Cash.Portal.WebSite\\\\Public\\\\JS\\\\Language\\" +
+    "\\";
+            // 
+            // TargetJSFolder
+            // 
+            this.TargetJSFolder.Location = new System.Drawing.Point(41, 52);
+            this.TargetJSFolder.Name = "TargetJSFolder";
+            this.TargetJSFolder.Size = new System.Drawing.Size(75, 23);
+            this.TargetJSFolder.TabIndex = 9;
+            this.TargetJSFolder.Text = "SelectFolder";
+            this.TargetJSFolder.UseVisualStyleBackColor = true;
+            this.TargetJSFolder.Click += new System.EventHandler(this.TargetJSFolder_Click);
+            // 
             // btn_JSReadWrite
             // 
             this.btn_JSReadWrite.Location = new System.Drawing.Point(41, 81);
@@ -235,25 +254,6 @@
             this.btn_JSImportExcel.Text = "Excel";
             this.btn_JSImportExcel.UseVisualStyleBackColor = true;
             this.btn_JSImportExcel.Click += new System.EventHandler(this.btn_JSImportExcel_Click);
-            // 
-            // TargetJSFolder
-            // 
-            this.TargetJSFolder.Location = new System.Drawing.Point(41, 52);
-            this.TargetJSFolder.Name = "TargetJSFolder";
-            this.TargetJSFolder.Size = new System.Drawing.Size(75, 23);
-            this.TargetJSFolder.TabIndex = 9;
-            this.TargetJSFolder.Text = "SelectFolder";
-            this.TargetJSFolder.UseVisualStyleBackColor = true;
-            this.TargetJSFolder.Click += new System.EventHandler(this.TargetJSFolder_Click);
-            // 
-            // txt_selectJsFolder
-            // 
-            this.txt_selectJsFolder.Location = new System.Drawing.Point(142, 55);
-            this.txt_selectJsFolder.Name = "txt_selectJsFolder";
-            this.txt_selectJsFolder.Size = new System.Drawing.Size(501, 20);
-            this.txt_selectJsFolder.TabIndex = 10;
-            this.txt_selectJsFolder.Text = "D:\\\\Project\\\\DEV\\\\star2\\\\src\\\\AgileBet.Cash.Portal.WebSite\\\\Public\\\\JS\\\\Language\\" +
-    "\\Financials\\\\";
             // 
             // Form1
             // 

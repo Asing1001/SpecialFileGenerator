@@ -6,7 +6,7 @@ namespace FinanLanGen
     {
         public static string GetMappingFilename(string key)
         {
-            var result = "";
+            var result = "fsdafsdagasgafsdfa";
             Dictionary<string, string> mapDictionary = new Dictionary<string, string>()
             {
                {"English","en-gb"},{"Brazil","pt-br" },{"Cambodia" ,"km-kh" },{"Khmer","km-kh"},{"China" ,"zh-cn" },{"Chinese","zh-cn"},{"Indonesia" ,"id-id" },{"Japan" ,"ja-jp" },{"Korea" ,"ko-kr" },{"Malaysia" ,"zh-cn" },{"Thai" ,"th-th" },{"Vietnam" ,"vi-vn" }

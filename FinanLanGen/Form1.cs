@@ -157,25 +157,28 @@ namespace FinanLanGen
 
         private void btn_JSReadWrite_Click(object sender, EventArgs e)
         {
+            var variableName = "";
             var directory = new DirectoryInfo(txt_selectJsFolder.Text);
             var fileEntries = directory.GetFiles().Where(f => f.Extension == ".js").ToList();
             //            string[] fileEntries = Directory.GetFiles(txt_selectJsFolder.Text);
-
+            var isCreateNew = MessageBox.Show("Do you want to create new file?", "Question", MessageBoxButtons.YesNo)==DialogResult.Yes;
             foreach (FileInfo fileinfo in fileEntries)
             {
                 string fullPath = fileinfo.FullName;// fileEntries[i];
-                string content = "";//File.ReadAllText(fullPath);
+                string content = isCreateNew? "": File.ReadAllText(fullPath);//File.ReadAllText(fullPath);
                 int start = content.IndexOf('{') + 1;
-                //int columnNum = 0;
                 foreach (DataColumn column in _dtJsDataTable.Columns)
                 {
                     //得到Excel column對應的檔案名(e.g. en-gb), 如果此檔名和現在的fileInfo檔名相同，就使用該column當Value
                     if (fileinfo.Name.Contains(LanguageMappingHelper.GetMappingFilename(column.ColumnName)))
                     {
-                        if (start == 0)//代表檔案是空的
+                        if (isCreateNew)//代表檔案是空的
                         {
-                            var variableName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type a variable you want to use in js file", "languageJS");
-                            content = string.Format("var {0} = { {1} }", variableName, content.Insert(0, jsonHelper.ToJsonByColumnName(_dtJsDataTable, column.ColumnName)).TrimEnd(','));
+                            if (variableName == "")
+                            {
+                                variableName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type a variable you want to use in js file", "languageJS");
+                            }
+                            content = string.Format("var {0} = {{{1}}}", variableName, jsonHelper.ToJsonByColumnName(_dtJsDataTable, column.ColumnName).TrimEnd(','));
 
                         }
                         else
@@ -187,7 +190,6 @@ namespace FinanLanGen
                     }
                 }
 
-                //fullPath= fullPath.Replace(sourceDir, "D:\\test\\");
                 File.WriteAllText(fullPath, content);
 
             }
