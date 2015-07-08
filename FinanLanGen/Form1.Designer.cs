@@ -49,6 +49,7 @@
             this.txt_JSSQL = new System.Windows.Forms.TextBox();
             this.JSdataGridView = new System.Windows.Forms.DataGridView();
             this.btn_JSImportExcel = new System.Windows.Forms.Button();
+            this.btn_SelectResxFolder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -58,7 +59,7 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(112, 32);
+            this.btnGenerate.Location = new System.Drawing.Point(113, 68);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(100, 23);
             this.btnGenerate.TabIndex = 0;
@@ -83,14 +84,14 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 97);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(852, 229);
+            this.dataGridView1.Size = new System.Drawing.Size(852, 215);
             this.dataGridView1.TabIndex = 2;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 6);
+            this.textBox1.Location = new System.Drawing.Point(113, 8);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(501, 20);
             this.textBox1.TabIndex = 3;
@@ -99,7 +100,7 @@
             // 
             // BtnWrite2Message
             // 
-            this.BtnWrite2Message.Location = new System.Drawing.Point(218, 32);
+            this.BtnWrite2Message.Location = new System.Drawing.Point(219, 68);
             this.BtnWrite2Message.Name = "BtnWrite2Message";
             this.BtnWrite2Message.Size = new System.Drawing.Size(100, 23);
             this.BtnWrite2Message.TabIndex = 5;
@@ -110,7 +111,7 @@
             // PreviewText
             // 
             this.PreviewText.AllowDrop = true;
-            this.PreviewText.Location = new System.Drawing.Point(6, 32);
+            this.PreviewText.Location = new System.Drawing.Point(7, 68);
             this.PreviewText.Name = "PreviewText";
             this.PreviewText.Size = new System.Drawing.Size(100, 23);
             this.PreviewText.TabIndex = 7;
@@ -121,7 +122,7 @@
             // richTextBox2
             // 
             this.richTextBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(875, 71);
+            this.richTextBox2.Location = new System.Drawing.Point(875, 61);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(169, 229);
             this.richTextBox2.TabIndex = 8;
@@ -129,11 +130,11 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(16, 308);
+            this.richTextBox1.Location = new System.Drawing.Point(17, 318);
             this.richTextBox1.Multiline = true;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(843, 233);
+            this.richTextBox1.Size = new System.Drawing.Size(843, 220);
             this.richTextBox1.TabIndex = 9;
             // 
             // btnSelectFolder
@@ -148,7 +149,7 @@
             // 
             // txtSelectFolder
             // 
-            this.txtSelectFolder.Location = new System.Drawing.Point(89, -21);
+            this.txtSelectFolder.Location = new System.Drawing.Point(113, 34);
             this.txtSelectFolder.Name = "txtSelectFolder";
             this.txtSelectFolder.Size = new System.Drawing.Size(501, 20);
             this.txtSelectFolder.TabIndex = 11;
@@ -166,6 +167,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btn_SelectResxFolder);
             this.tabPage1.Controls.Add(this.PreviewText);
             this.tabPage1.Controls.Add(this.txtSelectFolder);
             this.tabPage1.Controls.Add(this.btnGenerate);
@@ -202,7 +204,7 @@
             // 
             // txt_selectJsFolder
             // 
-            this.txt_selectJsFolder.Location = new System.Drawing.Point(142, 55);
+            this.txt_selectJsFolder.Location = new System.Drawing.Point(127, 49);
             this.txt_selectJsFolder.Name = "txt_selectJsFolder";
             this.txt_selectJsFolder.Size = new System.Drawing.Size(501, 20);
             this.txt_selectJsFolder.TabIndex = 10;
@@ -211,7 +213,7 @@
             // 
             // TargetJSFolder
             // 
-            this.TargetJSFolder.Location = new System.Drawing.Point(41, 52);
+            this.TargetJSFolder.Location = new System.Drawing.Point(26, 46);
             this.TargetJSFolder.Name = "TargetJSFolder";
             this.TargetJSFolder.Size = new System.Drawing.Size(75, 23);
             this.TargetJSFolder.TabIndex = 9;
@@ -221,7 +223,7 @@
             // 
             // btn_JSReadWrite
             // 
-            this.btn_JSReadWrite.Location = new System.Drawing.Point(41, 81);
+            this.btn_JSReadWrite.Location = new System.Drawing.Point(26, 75);
             this.btn_JSReadWrite.Name = "btn_JSReadWrite";
             this.btn_JSReadWrite.Size = new System.Drawing.Size(75, 23);
             this.btn_JSReadWrite.TabIndex = 8;
@@ -231,7 +233,7 @@
             // 
             // txt_JSSQL
             // 
-            this.txt_JSSQL.Location = new System.Drawing.Point(142, 25);
+            this.txt_JSSQL.Location = new System.Drawing.Point(127, 19);
             this.txt_JSSQL.Name = "txt_JSSQL";
             this.txt_JSSQL.Size = new System.Drawing.Size(501, 20);
             this.txt_JSSQL.TabIndex = 7;
@@ -240,20 +242,30 @@
             // JSdataGridView
             // 
             this.JSdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.JSdataGridView.Location = new System.Drawing.Point(41, 131);
+            this.JSdataGridView.Location = new System.Drawing.Point(26, 125);
             this.JSdataGridView.Name = "JSdataGridView";
             this.JSdataGridView.Size = new System.Drawing.Size(852, 229);
             this.JSdataGridView.TabIndex = 6;
             // 
             // btn_JSImportExcel
             // 
-            this.btn_JSImportExcel.Location = new System.Drawing.Point(41, 23);
+            this.btn_JSImportExcel.Location = new System.Drawing.Point(26, 17);
             this.btn_JSImportExcel.Name = "btn_JSImportExcel";
             this.btn_JSImportExcel.Size = new System.Drawing.Size(75, 23);
             this.btn_JSImportExcel.TabIndex = 5;
             this.btn_JSImportExcel.Text = "Excel";
             this.btn_JSImportExcel.UseVisualStyleBackColor = true;
             this.btn_JSImportExcel.Click += new System.EventHandler(this.btn_JSImportExcel_Click);
+            // 
+            // btn_SelectResxFolder
+            // 
+            this.btn_SelectResxFolder.Location = new System.Drawing.Point(8, 32);
+            this.btn_SelectResxFolder.Name = "btn_SelectResxFolder";
+            this.btn_SelectResxFolder.Size = new System.Drawing.Size(99, 23);
+            this.btn_SelectResxFolder.TabIndex = 12;
+            this.btn_SelectResxFolder.Text = "SelectFolder";
+            this.btn_SelectResxFolder.UseVisualStyleBackColor = true;
+            this.btn_SelectResxFolder.Click += new System.EventHandler(this.btn_SelectResxFolder_Click);
             // 
             // Form1
             // 
@@ -297,6 +309,7 @@
         private System.Windows.Forms.Button btn_JSImportExcel;
         private System.Windows.Forms.TextBox txt_selectJsFolder;
         private System.Windows.Forms.Button TargetJSFolder;
+        private System.Windows.Forms.Button btn_SelectResxFolder;
     }
 }
 

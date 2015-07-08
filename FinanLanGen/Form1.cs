@@ -32,6 +32,11 @@ namespace FinanLanGen
 
 
         #region resxGen
+        private void btn_SelectResxFolder_Click(object sender, EventArgs e)
+        {
+            txtSelectFolder.Text = FileHelper.OpenFolder();
+        }
+
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             WriteResx("Text");
@@ -83,6 +88,14 @@ namespace FinanLanGen
                 string content = File.ReadAllText(path);
                 int start = content.IndexOf("</root>");
                 string appendData = "";
+//                foreach (DataColumn dataColumn in dtMine.Columns)
+//                {
+//                    if (fileEntries[i].Name.Contains(LanguageMappingHelper.GetMappingFilename(dataColumn.ColumnName)))
+//                    {
+//                        
+//                    }
+//                }
+
                 foreach (DataRow row in dtMine.Rows)
                 {
                     if (row["Key"].ToString() != string.Empty)
@@ -113,7 +126,8 @@ namespace FinanLanGen
             if (fileName != string.Empty)
             {
                 string tableName = "[Sheet1$]"; //在頁簽名稱後加$，再用中括號[]包起來
-                string sql = textBox1.Text + " " + tableName; //SQL查詢
+                string inputsql = textBox1.Text == "" ? "select * from " : textBox1.Text;
+                string sql = inputsql + " " + tableName; //SQL查詢
                 dtMine = ExcelHelper.GetExcelDataTable(fileName, sql);
                 dataGridView1.DataSource = dtMine;
 
@@ -205,8 +219,6 @@ namespace FinanLanGen
             }
 
         }
-
-
 
 
     }
