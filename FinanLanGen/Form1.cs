@@ -95,14 +95,28 @@ namespace FinanLanGen
 //                        
 //                    }
 //                }
-
-                foreach (DataRow row in dtMine.Rows)
+               
+                if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    if (row["Key"].ToString() != string.Empty)
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                     {
-                        appendData += ResxHelper.ToXml(row["Key"].ToString(), row[i + 2].ToString(), row["Comment"].ToString());
+                        if (row.Cells["Key"].Value != string.Empty)
+                        {
+                            appendData += ResxHelper.ToXml(row.Cells["Key"].Value.ToString(), row.Cells[i + 2].Value.ToString(), row.Cells["Comment"].Value.ToString());
+                        }
                     }
                 }
+                else
+                {
+                    foreach (DataRow row in dtMine.Rows)
+                    {
+                        if (row["Key"].ToString() != string.Empty)
+                        {
+                            appendData += ResxHelper.ToXml(row["Key"].ToString(), row[i + 2].ToString(), row["Comment"].ToString());
+                        }
+                    }
+                }
+               
                 content = content.Insert(start, appendData);
                 richTextBox1.Text = appendData;
                 try

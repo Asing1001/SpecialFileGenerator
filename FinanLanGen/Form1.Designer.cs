@@ -42,6 +42,7 @@
             this.txtSelectFolder = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_SelectResxFolder = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txt_selectJsFolder = new System.Windows.Forms.TextBox();
             this.TargetJSFolder = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@
             this.txt_JSSQL = new System.Windows.Forms.TextBox();
             this.JSdataGridView = new System.Windows.Forms.DataGridView();
             this.btn_JSImportExcel = new System.Windows.Forms.Button();
-            this.btn_SelectResxFolder = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -167,6 +168,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.btn_SelectResxFolder);
             this.tabPage1.Controls.Add(this.PreviewText);
             this.tabPage1.Controls.Add(this.txtSelectFolder);
@@ -185,6 +187,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ResxGenerator";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_SelectResxFolder
+            // 
+            this.btn_SelectResxFolder.Location = new System.Drawing.Point(8, 32);
+            this.btn_SelectResxFolder.Name = "btn_SelectResxFolder";
+            this.btn_SelectResxFolder.Size = new System.Drawing.Size(99, 23);
+            this.btn_SelectResxFolder.TabIndex = 12;
+            this.btn_SelectResxFolder.Text = "SelectFolder";
+            this.btn_SelectResxFolder.UseVisualStyleBackColor = true;
+            this.btn_SelectResxFolder.Click += new System.EventHandler(this.btn_SelectResxFolder_Click);
             // 
             // tabPage2
             // 
@@ -257,15 +269,15 @@
             this.btn_JSImportExcel.UseVisualStyleBackColor = true;
             this.btn_JSImportExcel.Click += new System.EventHandler(this.btn_JSImportExcel_Click);
             // 
-            // btn_SelectResxFolder
+            // label1
             // 
-            this.btn_SelectResxFolder.Location = new System.Drawing.Point(8, 32);
-            this.btn_SelectResxFolder.Name = "btn_SelectResxFolder";
-            this.btn_SelectResxFolder.Size = new System.Drawing.Size(99, 23);
-            this.btn_SelectResxFolder.TabIndex = 12;
-            this.btn_SelectResxFolder.Text = "SelectFolder";
-            this.btn_SelectResxFolder.UseVisualStyleBackColor = true;
-            this.btn_SelectResxFolder.Click += new System.EventHandler(this.btn_SelectResxFolder_Click);
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(327, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(287, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Will only insert selected rows when there are rows selected.";
             // 
             // Form1
             // 
@@ -310,6 +322,7 @@
         private System.Windows.Forms.TextBox txt_selectJsFolder;
         private System.Windows.Forms.Button TargetJSFolder;
         private System.Windows.Forms.Button btn_SelectResxFolder;
+        private System.Windows.Forms.Label label1;
     }
 }
 
