@@ -43,3 +43,4 @@ D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.exe.mani
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.application
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.exe
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.pdb
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.DeleteRowForm.resources

@@ -24,5 +24,10 @@ namespace FinanLanGen
             }
             return string.Empty;
         }
+
+        public static void WriteFile()
+        {
+            
+        }
     }
 }

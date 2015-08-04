@@ -42,15 +42,16 @@
             this.txtSelectFolder = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_SelectResxFolder = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_WriteToi18n = new System.Windows.Forms.Button();
             this.txt_selectJsFolder = new System.Windows.Forms.TextBox();
             this.TargetJSFolder = new System.Windows.Forms.Button();
             this.btn_JSReadWrite = new System.Windows.Forms.Button();
             this.txt_JSSQL = new System.Windows.Forms.TextBox();
             this.JSdataGridView = new System.Windows.Forms.DataGridView();
             this.btn_JSImportExcel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -188,6 +189,16 @@
             this.tabPage1.Text = "ResxGenerator";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(327, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(287, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Will only insert selected rows when there are rows selected.";
+            // 
             // btn_SelectResxFolder
             // 
             this.btn_SelectResxFolder.Location = new System.Drawing.Point(8, 32);
@@ -200,6 +211,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button_WriteToi18n);
             this.tabPage2.Controls.Add(this.txt_selectJsFolder);
             this.tabPage2.Controls.Add(this.TargetJSFolder);
             this.tabPage2.Controls.Add(this.btn_JSReadWrite);
@@ -213,6 +225,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "LocalizeJSGenerator";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button_WriteToi18n
+            // 
+            this.button_WriteToi18n.Location = new System.Drawing.Point(141, 75);
+            this.button_WriteToi18n.Name = "button_WriteToi18n";
+            this.button_WriteToi18n.Size = new System.Drawing.Size(117, 23);
+            this.button_WriteToi18n.TabIndex = 11;
+            this.button_WriteToi18n.Text = "WriteToAngulari18n";
+            this.button_WriteToi18n.UseVisualStyleBackColor = true;
+            this.button_WriteToi18n.Click += new System.EventHandler(this.button_WriteToi18n_Click);
             // 
             // txt_selectJsFolder
             // 
@@ -237,9 +259,9 @@
             // 
             this.btn_JSReadWrite.Location = new System.Drawing.Point(26, 75);
             this.btn_JSReadWrite.Name = "btn_JSReadWrite";
-            this.btn_JSReadWrite.Size = new System.Drawing.Size(75, 23);
+            this.btn_JSReadWrite.Size = new System.Drawing.Size(109, 23);
             this.btn_JSReadWrite.TabIndex = 8;
-            this.btn_JSReadWrite.Text = "ReadWrite";
+            this.btn_JSReadWrite.Text = "WriteAsVariable";
             this.btn_JSReadWrite.UseVisualStyleBackColor = true;
             this.btn_JSReadWrite.Click += new System.EventHandler(this.btn_JSReadWrite_Click);
             // 
@@ -268,16 +290,6 @@
             this.btn_JSImportExcel.Text = "Excel";
             this.btn_JSImportExcel.UseVisualStyleBackColor = true;
             this.btn_JSImportExcel.Click += new System.EventHandler(this.btn_JSImportExcel_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(327, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Will only insert selected rows when there are rows selected.";
             // 
             // Form1
             // 
@@ -323,6 +335,7 @@
         private System.Windows.Forms.Button TargetJSFolder;
         private System.Windows.Forms.Button btn_SelectResxFolder;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_WriteToi18n;
     }
 }
 

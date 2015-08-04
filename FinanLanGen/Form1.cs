@@ -15,6 +15,11 @@ namespace FinanLanGen
         JsonHelper jsonHelper = new JsonHelper();
         DataTable _dtJsDataTable = new DataTable();
 
+        enum jsFormat
+        {
+            i18n, esports, financial
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -88,14 +93,14 @@ namespace FinanLanGen
                 string content = File.ReadAllText(path);
                 int start = content.IndexOf("</root>");
                 string appendData = "";
-//                foreach (DataColumn dataColumn in dtMine.Columns)
-//                {
-//                    if (fileEntries[i].Name.Contains(LanguageMappingHelper.GetMappingFilename(dataColumn.ColumnName)))
-//                    {
-//                        
-//                    }
-//                }
-               
+                //                foreach (DataColumn dataColumn in dtMine.Columns)
+                //                {
+                //                    if (fileEntries[i].Name.Contains(LanguageMappingHelper.GetMappingFilename(dataColumn.ColumnName)))
+                //                    {
+                //                        
+                //                    }
+                //                }
+
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -116,7 +121,7 @@ namespace FinanLanGen
                         }
                     }
                 }
-               
+
                 content = content.Insert(start, appendData);
                 richTextBox1.Text = appendData;
                 try
@@ -182,18 +187,37 @@ namespace FinanLanGen
                 //DataCount_BeChanged.Text = "DataCount : " + DataCount(dataGridView1);
             }
         }
-
         private void btn_JSReadWrite_Click(object sender, EventArgs e)
+        {
+            writeToJS(jsFormat.esports);
+        }
+
+        private void TargetJSFolder_Click(object sender, EventArgs e)
+        {
+            var temp = FileHelper.OpenFolder();
+            if (temp != string.Empty)
+            {
+                txt_selectJsFolder.Text = temp;
+            }
+
+        }
+
+        private void button_WriteToi18n_Click(object sender, EventArgs e)
+        {
+            writeToJS(jsFormat.i18n);
+        }
+
+        private void writeToJS(jsFormat jformat)
         {
             var variableName = "";
             var directory = new DirectoryInfo(txt_selectJsFolder.Text);
             var fileEntries = directory.GetFiles().Where(f => f.Extension == ".js").ToList();
             //            string[] fileEntries = Directory.GetFiles(txt_selectJsFolder.Text);
-            var isCreateNew = MessageBox.Show("Do you want to create new file?", "Question", MessageBoxButtons.YesNo)==DialogResult.Yes;
+            var isCreateNew = MessageBox.Show("Do you want to create new file?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes;
             foreach (FileInfo fileinfo in fileEntries)
             {
                 string fullPath = fileinfo.FullName;// fileEntries[i];
-                string content = isCreateNew? "": File.ReadAllText(fullPath);//File.ReadAllText(fullPath);
+                string content = isCreateNew ? "" : File.ReadAllText(fullPath);//File.ReadAllText(fullPath);
                 int start = content.IndexOf('{') + 1;
                 foreach (DataColumn column in _dtJsDataTable.Columns)
                 {
@@ -202,11 +226,21 @@ namespace FinanLanGen
                     {
                         if (isCreateNew)//代表檔案是空的
                         {
-                            if (variableName == "")
+                            switch (jformat)
                             {
-                                variableName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type a variable you want to use in js file", "languageJS");
+                                case jsFormat.esports:
+                                    if (variableName == "")
+                                    {
+                                        variableName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type a variable you want to use in js file", "languageJS");
+                                    }
+                                    content = string.Format("var {0} = {{{1}}}", variableName, jsonHelper.ToJsonByColumnName(_dtJsDataTable, column.ColumnName).TrimEnd(','));
+                                    break;
+                                case jsFormat.i18n:
+                                    content = string.Format("{{{0}}}", jsonHelper.ToJsonByColumnName(_dtJsDataTable, column.ColumnName).TrimEnd(','));
+                                    break;
                             }
-                            content = string.Format("var {0} = {{{1}}}", variableName, jsonHelper.ToJsonByColumnName(_dtJsDataTable, column.ColumnName).TrimEnd(','));
+
+
 
                         }
                         else
@@ -223,17 +257,5 @@ namespace FinanLanGen
             }
             System.Diagnostics.Process.Start(txt_selectJsFolder.Text);
         }
-
-        private void TargetJSFolder_Click(object sender, EventArgs e)
-        {
-            var temp = FileHelper.OpenFolder();
-            if (temp != string.Empty)
-            {
-                txt_selectJsFolder.Text = temp;
-            }
-
-        }
-
-
     }
 }
