@@ -25,16 +25,10 @@ namespace FinanLanGen
         JsonHelper jsonHelper = new JsonHelper();
         private void button1_Click(object sender, EventArgs e)
         {
-
             var fileName = FileHelper.OpenFile();
             if (fileName != string.Empty)
             {
-                string sheetName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type a sheetName you want to use", "Message");
-                string tableName = sheetName==""? "[Sheet1$]":string.Format("[{0}$]",sheetName); //在頁簽名稱後加$，再用中括號[]包起來
-                string inputsql = textBox1.Text == "" ? "select * from " : textBox1.Text;
-                string sql = inputsql + " " + tableName; //SQL查詢
-                dtMine = ExcelHelper.GetExcelDataTable(fileName, sql);
-                //dtMine = DeleteRows(dtMine);
+                dtMine = ExcelHelper.ImportExcel(textBox1.Text, fileName);
                 priviewDataGridView.DataSource = dtMine;
             }
         }

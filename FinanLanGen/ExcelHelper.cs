@@ -64,5 +64,14 @@ namespace FinanLanGen
             }
         }
 
+        public static DataTable ImportExcel(string query, string excelPath)
+        {
+            string sheetName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type the sheetName you want to use", "Message");
+            string tableName = sheetName == "" ? "[Sheet1$]" : string.Format("[{0}$]", sheetName); //在頁簽名稱後加$，再用中括號[]包起來
+            string inputsql = query == "" ? "select * from " : query;
+            string sql = inputsql + " " + tableName; //SQL查詢
+            return GetExcelDataTable(excelPath, sql);
+        }
+
     }
 }
