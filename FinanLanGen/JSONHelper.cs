@@ -103,14 +103,15 @@ namespace WindowsFormsApplication1
 
         public void WriteToJs(JsFormat jformat, string targetFolder, DataTable dtJsDataTable)
         {
+            string fileExtension = jformat == JsFormat.I18N ? ".json" : ".js";
             var variableName = "";
             var directory = new DirectoryInfo(targetFolder);
-            var fileEntries = directory.GetFiles().Where(f => f.Extension == ".js").ToList();
+            var fileEntries = directory.GetFiles().Where(f => f.Extension == fileExtension).ToList();
             //            string[] fileEntries = Directory.GetFiles(txt_selectJsFolder.Text);
             var isCreateNew = MessageBox.Show("Do you want to create new file?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes;
             foreach (FileInfo fileinfo in fileEntries)
             {
-                string fullPath = fileinfo.FullName;// fileEntries[i];
+                string fullPath = jformat == JsFormat.I18N ? Path.ChangeExtension(fileinfo.FullName,".json") : fileinfo.FullName;// fileEntries[i];
                 string content = isCreateNew ? "" : File.ReadAllText(fullPath);//File.ReadAllText(fullPath);
                 int start = content.IndexOf('{') + 1;
                 foreach (DataColumn column in dtJsDataTable.Columns)
@@ -149,6 +150,7 @@ namespace WindowsFormsApplication1
             Process.Start(targetFolder);
         }
 
+   
         public enum JsFormat
         {
             I18N, Esports, Financial

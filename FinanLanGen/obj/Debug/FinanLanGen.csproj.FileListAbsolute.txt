@@ -35,6 +35,7 @@ D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\FinanLanGen.exe
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\FinanLanGen.pdb
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\Newtonsoft.Json.dll
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\bin\Debug\Newtonsoft.Json.xml
+D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.csprojResolveAssemblyReference.cache
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.DeleteRowForm.resources
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.Form1.resources
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.Properties.Resources.resources
@@ -43,4 +44,3 @@ D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.exe.mani
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.application
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.exe
 D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.pdb
-D:\Code Practice\SpecialFileGenerator\FinanLanGen\obj\Debug\FinanLanGen.csprojResolveAssemblyReference.cache

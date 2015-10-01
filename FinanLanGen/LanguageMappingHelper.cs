@@ -15,7 +15,7 @@ namespace FinanLanGen
 
             foreach (var map in mapDictionary)
             {
-                if (key.ToLower().Contains(map.Key.ToLower()))
+                if (key.ToLower().Contains(map.Key.ToLower())||key.ToLower().Contains(map.Value.ToLower()))
                 {
                     result = map.Value;
                     break;
