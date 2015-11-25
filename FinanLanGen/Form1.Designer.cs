@@ -242,8 +242,7 @@
             this.txt_selectJsFolder.Name = "txt_selectJsFolder";
             this.txt_selectJsFolder.Size = new System.Drawing.Size(501, 20);
             this.txt_selectJsFolder.TabIndex = 10;
-            this.txt_selectJsFolder.Text = "D:\\\\Project\\\\DEV\\\\star2\\\\src\\\\AgileBet.Cash.Portal.WebSite\\\\Public\\\\JS\\\\Language\\" +
-    "\\";
+            this.txt_selectJsFolder.Text = "D:\\Project\\DEV\\star3\\src\\AgileBet.Cash.Portal.NgWebsite\\Public\\resource\\i18n";
             // 
             // TargetJSFolder
             // 

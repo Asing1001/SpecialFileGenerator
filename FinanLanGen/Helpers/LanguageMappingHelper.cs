@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FinanLanGen
+namespace FinanLanGen.Helpers
 {
     static class LanguageMappingHelper
     {

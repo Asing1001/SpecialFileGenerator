@@ -1,14 +1,9 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FinanLanGen
+namespace FinanLanGen.Helpers
 {
     static class ExcelHelper
     {
@@ -64,9 +59,9 @@ namespace FinanLanGen
             }
         }
 
-        public static DataTable ImportExcel(string query, string excelPath)
+        public static DataTable ImportExcel(string query, string excelPath, string name = "Message")
         {
-            string sheetName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type the sheetName you want to use", "Message");
+            string sheetName = Microsoft.VisualBasic.Interaction.InputBox("Question?", "Please type the sheetName you want to use", name);
             string tableName = sheetName == "" ? "[Sheet1$]" : string.Format("[{0}$]", sheetName); //在頁簽名稱後加$，再用中括號[]包起來
             string inputsql = query == "" ? "select * from " : query;
             string sql = inputsql + " " + tableName; //SQL查詢

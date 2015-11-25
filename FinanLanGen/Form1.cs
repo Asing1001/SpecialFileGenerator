@@ -3,7 +3,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using WindowsFormsApplication1;
+using FinanLanGen.Helpers;
 
 namespace FinanLanGen
 {
@@ -173,7 +173,7 @@ namespace FinanLanGen
             var fileName = FileHelper.OpenFile();
             if (fileName != string.Empty)
             {
-                _dtJsDataTable = ExcelHelper.ImportExcel(txt_JSSQL.Text, fileName);
+                _dtJsDataTable = ExcelHelper.ImportExcel(txt_JSSQL.Text, fileName, "Resource");
                 JSdataGridView.DataSource = _dtJsDataTable;
             }
         }

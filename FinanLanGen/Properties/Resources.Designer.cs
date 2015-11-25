@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinanLanGen.Properties
+namespace LocalizationFileGen.Properties
 {
 
 

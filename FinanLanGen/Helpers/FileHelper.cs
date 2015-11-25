@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace FinanLanGen
+namespace FinanLanGen.Helpers
 {
     static class FileHelper
     {

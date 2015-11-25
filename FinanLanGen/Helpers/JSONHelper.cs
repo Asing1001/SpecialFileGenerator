@@ -6,12 +6,10 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using AgileBet.Cash.Portal.Common;
-using FinanLanGen;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 
-namespace WindowsFormsApplication1
+namespace FinanLanGen.Helpers
 {
     class JsonHelper
     {
@@ -98,7 +96,7 @@ namespace WindowsFormsApplication1
             }
 
             //result = result.TrimEnd(',');
-            return JsonSerializerHelper.Serialize(dictionary);
+            return JsonConvert.SerializeObject(dictionary);
         }
 
         public void WriteToJs(JsFormat jformat, string targetFolder, DataTable dtJsDataTable)
